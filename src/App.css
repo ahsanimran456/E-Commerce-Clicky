@@ -42,6 +42,27 @@
   padding: 0;
 }
 
+h6 {
+  font-size: 16px !important;
+  color: #000;
+  font-weight: 700 !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+del {
+  line-height: 1.6;
+  font-size: 13px;
+  text-align: center;
+  margin-right: 7px;
+  color: #666;
+  font-weight: 600;
+}
+
 /* navbar  */
 .nav-main {
   padding: 15px 15px;
@@ -130,4 +151,97 @@ li {
 
 .banners-items {
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+
+/* slick custom css  */
+
+
+.slider-card {
+  position: relative;
+  outline: none !important;
+  border-radius: 10px;
+}
+
+.slider-card:hover {
+  box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
+
+}
+
+.slider-img {
+  height: 325px !important;
+  cursor: pointer;
+}
+
+.slider-img img {
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slick-slide {
+  height: 400px !important;
+}
+
+.slick-track {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 20px !important
+}
+
+.slick-active {
+  outline: none !important;
+}
+
+.slick-prev {
+  left: 25px !important;
+  z-index: 9999;
+}
+
+.slick-next {
+  right: 25px !important;
+}
+
+.slick-next,
+.slick-prev {
+  height: 45px !important;
+  width: 45px !important;
+  top: 42% !important;
+  border-radius: 100% !important;
+  text-align: center !important;
+}
+
+
+.slick-next:before {
+  content: '►' !important;
+  font-family: 'slick';
+  font-size: 22px !important;
+  line-height: 1.9 !important;
+  opacity: .75;
+  color: #000000 !important;
+  -webkit-font-smoothing: antialiased;
+  margin-left: 6px !important;
+
+}
+
+.slick-prev:before {
+  content: '◄' !important;
+  font-family: 'slick';
+  font-size: 22px !important;
+  line-height: 1.9 !important;
+  opacity: .75;
+  color: #000000 !important;
+  -webkit-font-smoothing: antialiased;
+  margin-right: 6px !important;
+}
+
+
+
+.parcent {
+  letter-spacing: normal;
+  color: #ea3f51;
+  font-size: 11px;
+  font-weight: 600;
 }

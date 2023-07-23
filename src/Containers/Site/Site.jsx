@@ -1,6 +1,6 @@
-import Slider from "../../Components/Slider";
 import Navbar from "../../Components/Navbar";
 import Categories from "../../Components/Categories";
+import Banner from "../../Components/Banner";
 
 function Site() {
     return (
@@ -8,10 +8,17 @@ function Site() {
         <div className="Main">
             <div className="Navbar">
                 <Navbar />
-                <Slider />
+                <Banner />
             </div>
             <div>
                 <Categories />
+            </div>
+            <div>
+                <div className="cat-header">
+                    <h3>
+                        DEAL ZONE
+                    </h3>
+                </div>
             </div>
         </div>
 

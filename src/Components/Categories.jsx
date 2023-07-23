@@ -16,7 +16,7 @@ import img15 from "../Assests/9.Boys Clothing.gif";
 import img16 from "../Assests/10.Lawn (1).gif";
 import img17 from "../Assests/11.Womens-Sneakers.gif";
 import img18 from "../Assests/12.Sports-Shoes.gif";
-import Slider from "react-slick";
+import AppSlider from "./Slider";
 
 function Categories() {
 
@@ -113,14 +113,7 @@ function Categories() {
         },
     ]
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
 
-    };
     return (
         <div className="container">
             <div className="cat-header">
@@ -133,7 +126,7 @@ function Categories() {
             <div className="row mb-4">
                 {imgdata && imgdata.map((items, index) => {
                     return (
-                        <div className="col-md-2 col-sm-3 mt-4">
+                        <div className="col-md-2 col-sm-3 mt-4" key={index}>
                             <img className="img-fluid" src={items.imgurl} alt={items.description} />
                             <div className="text-center mt-2"><b>{items.description}</b></div>
                         </div>
@@ -163,43 +156,13 @@ function Categories() {
                     </div>
                 </div>
             </div>
-            <div className="bestseller">
+            <div className="bestseller my-5">
                 <div className="cat-header">
                     <h3>
                         BESTSELLERS
                     </h3>
                 </div>
-                <div>
-                    <Slider {...settings}>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider1.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider2.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider3.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider4.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider5.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider6.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider7.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider8.jpg")} alt="" />
-                        </div>
-                        <div className="">
-                            <img className="img-fluid" src={require("../Assests/slider9.jpg")} alt="" />
-                        </div>
-                    </Slider>
-                </div>
+                <AppSlider />
             </div>
         </div>
     );

@@ -1,132 +1,96 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Slider from "react-slick";
+import SliderData from "./Products"
 
-function Slider() {
-    const [Selected, setSelected] = useState(1);
-    // const [Bannermodtion, setBannermodtion] = useState({
-    //     animate: { y: 0, opacity: 1 },
-    //     initial: { y: 200, opacity: 0 },
-    //     transition: { duration: 1 },
-    //     exit: { y: 0, opacity: 0 },
-    // });
+function AppSlider() {
 
-    // useEffect(() => {
-    //     const newVariants = {
-    //         animate: { y: 0, opacity: 1 },
-    //         initial: { y: -10, opacity: 0 },
-    //         exit: { y: 0, opacity: 0 },
-    //         transition: { duration: 1 }
-    //     };
-    //     setBannermodtion(newVariants);
-    // }, [Selected]);
-
-    return (
-        <div className="banner">
-            {Selected === 1 && (
-                // <motion.div
-                //     key={1}
-                //     initial={Bannermodtion.initial}
-                //     animate={Bannermodtion.animate}
-                //     exit={Bannermodtion.exit}
-                //     transition={Bannermodtion.transition}
-                // >
-                <div className="banner-container">
-                    <img
-                        src={require('../Assests/an image for closet shop.jpg')}
-                        alt=""
-                    />
-                    <div className="banner-text">
-                        <h3>
-                            Summer Sale
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dolor corporis veniam voluptas ex ipsum ad asperiores odio laudantium! Numquam, temporibus sed? Deleniti qui natus perspiciatis iste laboriosam? Earum, veritatis.
-                        </p>
-                    </div>
-                </div>
-                // </motion.div>
-            )}
-            {Selected === 2 && (
-
-                <div className="banner-container">
-                    <img
-                        src={require('../Assests/garments men & women.jpg')}
-                        alt=""
-                    />
-                    <div className="banner-text">
-                        <h3>
-                            Summer Sale
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dolor corporis veniam voluptas ex ipsum ad asperiores odio laudantium! Numquam, temporibus sed? Deleniti qui natus perspiciatis iste laboriosam? Earum, veritatis.
-                        </p>
-                    </div>
-                </div>
-            )}
-            {Selected === 3 && (
-
-                <div className="banner-container">
-                    <img
-                        src={require('../Assests/wardrobe full with clothes and shoes and umbrellas (1).jpg')}
-                        alt=""
-                    />
-                    <div className="banner-text">
-                        <h3>
-                            Summer Sale
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dolor corporis veniam voluptas ex ipsum ad asperiores odio laudantium! Numquam, temporibus sed? Deleniti qui natus perspiciatis iste laboriosam? Earum, veritatis.
-                        </p>
-                    </div>
-                </div>
-            )}
-            {Selected === 4 && (
-
-                <div className="banner-container">
-                    <img
-                        src={require('../Assests/make a picture for my clothing line.jpg')}
-                        alt=""
-                    />
-                    <div className="banner-text">
-                        <h3>
-                            Summer Sale
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dolor corporis veniam voluptas ex ipsum ad asperiores odio laudantium! Numquam, temporibus sed? Deleniti qui natus perspiciatis iste laboriosam? Earum, veritatis.
-                        </p>
-                    </div>
-                </div>
-            )}
-
-            <div className="selectors">
-                <input
-                    type="radio"
-                    name="banner"
-                    defaultChecked
-                    value={1}
-                    onChange={() => setSelected(1)}
-                />
-                <input
-                    type="radio"
-                    name="banner"
-                    value={2}
-                    onChange={() => setSelected(2)}
-                />
-                <input
-                    type="radio"
-                    name="banner"
-                    value={3}
-                    onChange={() => setSelected(3)}
-                />
-                <input
-                    type="radio"
-                    name="banner"
-                    value={4}
-                    onChange={() => setSelected(4)}
-                />
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "block", background: "#ffff", }}
+                onClick={onClick}
+            >
             </div>
-        </div>
+        );
+    }
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        console.log(props);
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "block", background: "#ffff" }}
+                onClick={onClick}
+            >
+            </div>
+        );
+
+    }
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        dots: false,
+        // autoplay: true,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        pauseOnHover: true,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+
+    };
+    return (
+        <Slider {...settings}>
+            {SliderData && SliderData.map((items, index) => {
+                const percent = ((items.Acctual_Price - items.Rates) / items.Acctual_Price) * 100
+                const final = Math.ceil(percent)
+                return (
+                    <div className="slider-card" >
+                        <div className="slider-img">
+                            <img className="img-fluid" src={items.imgurl} alt="" />
+                        </div>
+                        <div className="text-center mt-1">
+                            <h6>
+                                RS {items.Rates}
+                            </h6>
+                            <div className="d-flex align-items-center justify-content-center">
+                                <del>RS {items.Acctual_Price}</del>
+                                <span className="parcent">({final}%)</span>
+                            </div>
+                        </div>
+                    </div>
+                )
+            })}
+        </Slider>
     );
 }
 
-export default Slider;
+export default AppSlider;
