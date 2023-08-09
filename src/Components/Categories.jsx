@@ -17,9 +17,29 @@ import img16 from "../Assests/10.Lawn (1).gif";
 import img17 from "../Assests/11.Womens-Sneakers.gif";
 import img18 from "../Assests/12.Sports-Shoes.gif";
 import AppSlider from "./Slider";
-
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { GoHeart } from "react-icons/go";
+import SideDrawer from "./Sider_drawer";
+import { useState, useEffect } from "react";
 function Categories() {
+    const [open, setOpen] = useState(false);
+    const [SelectedItems, setSelectedItems] = useState([]);
+    const showDrawer = (item) => {
+        const filteredItems = SelectedItems.some(existingItem => existingItem.id === item.id)
+        console.log('====================================');
+        console.log(filteredItems);
+        console.log('====================================');
+        if (!filteredItems) {
+            setOpen(true);
+            setSelectedItems(prevSelectedItems => [...prevSelectedItems, item]);
+        }
+    };
 
+    // useEffect(() => {
+    //     if (SelectedItems) {
+    //         console.log(SelectedItems);
+    //     }
+    // }, [SelectedItems]);
     const imgdata = [
         {
             id: 1,
@@ -117,22 +137,36 @@ function Categories() {
     return (
         <div className="container">
             <div className="cat-header">
-                <h3>
+                <h3 className="m-0">
                     TOP CATEGORY
                 </h3>
-
-
             </div>
+
             <div className="row mb-4">
                 {imgdata && imgdata.map((items, index) => {
                     return (
-                        <div className="col-md-2 col-sm-3 mt-4" key={index}>
-                            <img className="img-fluid" src={items.imgurl} alt={items.description} />
-                            <div className="text-center mt-2"><b>{items.description}</b></div>
-                        </div>
+                        <>
+                            <div className="col-md-2 col-sm-3 p-2 " key={items.id}>
+                                <div className="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div className="flip-card-front">
+                                            <img className="img-fluid" src={items.imgurl} alt={items.description} />
+                                        </div>
+                                        <div className="flip-card-back d-flex justify-content-center flex-column ">
+                                            <div className="text-center "><b>{items.description}</b></div>
+                                            <div className="text-center "><b><p>RS 5000</p></b></div>
+                                            <div className="d-flex justify-content-center gap-1  text-center">
+                                                <div className="text-center"><b><AiOutlineShoppingCart onClick={() => showDrawer(items)} size={20} style={{ cursor: "pointer" }} /></b></div>
+                                                <div className="text-center "><b><p><GoHeart size={20} style={{ cursor: "pointer" }} /></p></b></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
                     )
                 })}
-            </div>
+            </div >
             <div className="exclusive-for-you">
                 <div className="cat-header">
                     <h3>
@@ -164,6 +198,11 @@ function Categories() {
                 </div>
                 <AppSlider />
             </div>
+            {open && <SideDrawer
+                close={setOpen}
+                Open={open}
+                selectedItems={SelectedItems}
+            />}
         </div>
     );
 }

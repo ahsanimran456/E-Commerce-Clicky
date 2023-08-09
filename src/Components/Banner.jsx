@@ -50,7 +50,7 @@ function Banner() {
 
                 <div className="banner-container">
                     <img
-                        src={require('../Assests/garments men & women.jpg')}
+                        src={require('../Assests/webbanner2.jpg')}
                         alt=""
                     />
                     {/* <div className="banner-text">
