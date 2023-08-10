@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import SliderData from "./Products"
+import {SliderData} from "./Products"
 
 function AppSlider() {
 
@@ -72,7 +72,7 @@ function AppSlider() {
                 const percent = ((items.Acctual_Price - items.Rates) / items.Acctual_Price) * 100
                 const final = Math.ceil(percent)
                 return (
-                    <div className="slider-card" >
+                    <div className="slider-card" key={index} >
                         <div className="slider-img">
                             <img className="img-fluid" src={items.imgurl} alt="" />
                         </div>

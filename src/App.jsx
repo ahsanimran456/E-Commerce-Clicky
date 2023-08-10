@@ -1,12 +1,16 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Router from "./Router/Router.jsx"
+import Site from './Containers/Site/Site';
+import AddProductProvider from './Context/AddProducts';
 
 function App() {
   return (
     <div className="App">
-
-      <Router />
-
+      <AddProductProvider>
+        <Routes>
+          <Route path="/" element={<Site />} />
+        </Routes>
+      </AddProductProvider>
     </div>
   );
 }

@@ -2,10 +2,16 @@ import { Input } from 'antd';
 import { VscAccount } from "react-icons/vsc";
 import { FiHeart, FiBell } from "react-icons/fi";
 import { FaShoppingCart } from 'react-icons/fa';
+import { useState } from 'react';
+import SideDrawer from './Sider_drawer';
 const { Search } = Input;
 
 function Navbar() {
     const onSearch = (value) => console.log(value);
+    const [open, setOpen] = useState(false);
+    const showDrawer = () => {
+        setOpen(true);
+    }
     return (
         <div className="nav-header">
             {/* <div className="container"> */}
@@ -54,12 +60,15 @@ function Navbar() {
                             <FiHeart />
                         </li>
                         <li>
-                            <FaShoppingCart />
+                            <FaShoppingCart onClick={showDrawer} />
                         </li>
                     </ul>
                 </div>
             </div>
-            {/* </div> */}
+            {open && <SideDrawer
+                close={setOpen}
+                Open={open}
+            />}
         </div>
     );
 }

@@ -148,6 +148,11 @@ li {
   text-align: center;
 }
 
+.TOP-BRANDS {
+  padding-top: 30px;
+  text-align: center;
+}
+
 .banners-items {
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
@@ -291,4 +296,17 @@ li {
   color: #ea3f51;
   font-size: 11px;
   font-weight: 600;
+}
+
+/* trending tabs css  */
+.nt-tabs-top {
+  width: 100%;
+}
+
+.ant-tabs-nav-wrap {
+  justify-content: center !important;
+}
+
+.ant-tabs-tab-btn {
+  color: #000000 !important;
 }

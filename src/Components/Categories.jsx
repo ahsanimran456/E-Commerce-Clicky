@@ -20,26 +20,26 @@ import AppSlider from "./Slider";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GoHeart } from "react-icons/go";
 import SideDrawer from "./Sider_drawer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MainaddproductContext } from "../Context/AddProducts";
+
 function Categories() {
     const [open, setOpen] = useState(false);
     const [SelectedItems, setSelectedItems] = useState([]);
+    const { handleAddProduct } = useContext(MainaddproductContext);
     const showDrawer = (item) => {
         const filteredItems = SelectedItems.some(existingItem => existingItem.id === item.id)
-        console.log('====================================');
-        console.log(filteredItems);
-        console.log('====================================');
         if (!filteredItems) {
             setOpen(true);
             setSelectedItems(prevSelectedItems => [...prevSelectedItems, item]);
         }
     };
+    useEffect(() => {
+        if (SelectedItems) {
+            handleAddProduct(SelectedItems)
+        }
+    }, [SelectedItems]);
 
-    // useEffect(() => {
-    //     if (SelectedItems) {
-    //         console.log(SelectedItems);
-    //     }
-    // }, [SelectedItems]);
     const imgdata = [
         {
             id: 1,
@@ -143,7 +143,7 @@ function Categories() {
             </div>
 
             <div className="row mb-4">
-                {imgdata && imgdata.map((items, index) => {
+                {imgdata && imgdata.map((items) => {
                     return (
                         <>
                             <div className="col-md-2 col-sm-3 p-2 " key={items.id}>
@@ -190,7 +190,7 @@ function Categories() {
                     </div>
                 </div>
             </div>
-            <div className="bestseller my-5">
+            <div className="bestseller ">
                 <div className="cat-header">
                     <h3>
                         BESTSELLERS
@@ -201,7 +201,6 @@ function Categories() {
             {open && <SideDrawer
                 close={setOpen}
                 Open={open}
-                selectedItems={SelectedItems}
             />}
         </div>
     );

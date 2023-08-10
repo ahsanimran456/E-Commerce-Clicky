@@ -7,6 +7,23 @@ import img6 from "../Assests/slider6.jpg";
 import img7 from "../Assests/slider7.jpg";
 import img8 from "../Assests/slider8.jpg";
 import img9 from "../Assests/slider9.jpg";
+import deal1 from "../Assests/deal1.png";
+import deal2 from "../Assests/deal2.png";
+import deal3 from "../Assests/deal3.png";
+import deal4 from "../Assests/dael4.png";
+import topbr1 from "../Assests/topbr1.jpg";
+import topbr2 from "../Assests/topbr2.jpg";
+import topbr3 from "../Assests/topbr3.jpg";
+import topbr4 from "../Assests/topbr4.jpg";
+import topbr5 from "../Assests/topbr5.jpg";
+import topbr6 from "../Assests/topbr6.jpg";
+import topbr7 from "../Assests/topbr7.jpg";
+import topbr8 from "../Assests/topbr8.jpg";
+import topbr9 from "../Assests/topbr9.jpg";
+import topbr10 from "../Assests/topbr10.jpg";
+import topbr11 from "../Assests/topbr11.jpg";
+import topbr12 from "../Assests/topbr12.jpg";
+
 
 
 const SliderData = [
@@ -66,6 +83,81 @@ const SliderData = [
     },
 ]
 
+const dealdata = [
+    {
+        id: 1,
+        imgurl: deal1,
+        category: "mini"
+    },
+    {
+        id: 2,
+        imgurl: deal2,
+        category: "halfprice"
+    },
+    {
+        id: 3,
+        imgurl: deal3,
+        category: "under799"
+    },
+    {
+        id: 4,
+        imgurl: deal4,
+        category: "under999"
+    },
+
+]
+
+const Topbrands = [
+    {
+        id: 1,
+        imgurl: topbr1,
+    },
+    {
+        id: 2,
+        imgurl: topbr2,
+    },
+    {
+        id: 3,
+        imgurl: topbr3,
+    },
+    {
+        id: 4,
+        imgurl: topbr4,
+    },
+    {
+        id: 5,
+        imgurl: topbr5,
+    },
+    {
+        id: 6,
+        imgurl: topbr6,
+    },
+    {
+        id: 7,
+        imgurl: topbr7,
+    },
+    {
+        id: 8,
+        imgurl: topbr8,
+    },
+    {
+        id: 9,
+        imgurl: topbr9,
+    },
+    {
+        id: 10,
+        imgurl: topbr10,
+    },
+    {
+        id: 11,
+        imgurl: topbr11,
+    },
+    {
+        id: 12,
+        imgurl: topbr12,
+    },
+]
 
 
-export default SliderData;
+
+export { SliderData, dealdata,Topbrands };

@@ -1,10 +1,12 @@
 import Navbar from "../../Components/Navbar";
 import Categories from "../../Components/Categories";
 import Banner from "../../Components/Banner";
+import DealZone from "../../Components/Dealzone";
+import TopBrands from "../../Components/TopBrands";
+import Toptrending from "../../Components/Toptrending";
 
 function Site() {
     return (
-
         <div className="Main">
             <div className="Navbar">
                 <Navbar />
@@ -14,11 +16,13 @@ function Site() {
                 <Categories />
             </div>
             <div>
-                <div className="cat-header">
-                    <h3>
-                        DEAL ZONE
-                    </h3>
-                </div>
+                <DealZone />
+            </div>
+            <div>
+                <TopBrands />
+            </div>
+            <div>
+                <Toptrending />
             </div>
         </div>
 
