@@ -4,6 +4,7 @@ import { FiHeart, FiBell } from "react-icons/fi";
 import { FaShoppingCart } from 'react-icons/fa';
 import { useState } from 'react';
 import SideDrawer from './Sider_drawer';
+import { Link } from 'react-router-dom';
 const { Search } = Input;
 
 function Navbar() {
@@ -17,7 +18,9 @@ function Navbar() {
             {/* <div className="container"> */}
             <div className='nav-main d-flex'>
                 <div className="logo-nav">
-                    <img src={require("../Assests/logo.png")} alt="" />
+                    <Link to={"/"}>
+                        <img src={require("../Assests/logo.png")} alt="" />
+                    </Link>
                 </div>
                 <div className="Categories-nav">
                     <ul className='d-flex nav-cate'>

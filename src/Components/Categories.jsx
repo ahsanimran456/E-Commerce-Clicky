@@ -22,18 +22,20 @@ import { GoHeart } from "react-icons/go";
 import SideDrawer from "./Sider_drawer";
 import { useState, useEffect, useContext } from "react";
 import { MainaddproductContext } from "../Context/AddProducts";
+import { Link, useNavigate } from "react-router-dom";
 
 function Categories() {
     const [open, setOpen] = useState(false);
     const [SelectedItems, setSelectedItems] = useState([]);
     const { handleAddProduct } = useContext(MainaddproductContext);
-    const showDrawer = (item) => {
-        const filteredItems = SelectedItems.some(existingItem => existingItem.id === item.id)
-        if (!filteredItems) {
-            setOpen(true);
-            setSelectedItems(prevSelectedItems => [...prevSelectedItems, item]);
-        }
-    };
+    const navigate = useNavigate();
+    // const showDrawer = (item) => {
+    //     const filteredItems = SelectedItems.some(existingItem => existingItem.id === item.id)
+    //     if (!filteredItems) {
+    //         setOpen(true);
+    //         setSelectedItems(prevSelectedItems => [...prevSelectedItems, item]);
+    //     }
+    // };
     useEffect(() => {
         if (SelectedItems) {
             handleAddProduct(SelectedItems)
@@ -132,6 +134,11 @@ function Categories() {
             description: "Sports Shoes",
         },
     ]
+    const HandleItem = (item) => {
+        const itemJSON = JSON.stringify(item);
+        localStorage.setItem("Product", itemJSON);
+        navigate(`product/${item.description}/${item.id}`)
+    }
 
 
     return (
@@ -143,10 +150,10 @@ function Categories() {
             </div>
 
             <div className="row mb-4">
-                {imgdata && imgdata.map((items) => {
+                {imgdata && imgdata.map((items, index) => {
                     return (
                         <>
-                            <div className="col-md-2 col-sm-3 p-2 " key={items.id}>
+                            <div className="col-md-2 col-sm-3 p-2 " key={index} onClick={() => HandleItem(items)}>
                                 <div className="flip-card">
                                     <div class="flip-card-inner">
                                         <div className="flip-card-front">
@@ -156,7 +163,7 @@ function Categories() {
                                             <div className="text-center "><b>{items.description}</b></div>
                                             <div className="text-center "><b><p>RS 5000</p></b></div>
                                             <div className="d-flex justify-content-center gap-1  text-center">
-                                                <div className="text-center"><b><AiOutlineShoppingCart onClick={() => showDrawer(items)} size={20} style={{ cursor: "pointer" }} /></b></div>
+                                                <div className="text-center"><b><AiOutlineShoppingCart /*onClick={() => showDrawer(items)}*/ size={20} style={{ cursor: "pointer" }} /></b></div>
                                                 <div className="text-center "><b><p><GoHeart size={20} style={{ cursor: "pointer" }} /></p></b></div>
                                             </div>
                                         </div>
@@ -198,11 +205,13 @@ function Categories() {
                 </div>
                 <AppSlider />
             </div>
-            {open && <SideDrawer
-                close={setOpen}
-                Open={open}
-            />}
-        </div>
+            {/* {
+                open && <SideDrawer
+                    close={setOpen}
+                    Open={open}
+                />
+            } */}
+        </div >
     );
 }
 

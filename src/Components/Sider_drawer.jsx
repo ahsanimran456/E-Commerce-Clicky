@@ -8,9 +8,10 @@ function SideDrawer({ close, Open, selectedItems }) {
         close(false);
     };
     return (
-        <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={Open}>
+        <Drawer title="Shopping cart" placement="right" onClose={onClose} open={Open}>
             <div className="row justify-content-center align-center">
-                {addproduct && addproduct.map((items, index) => {
+                {console.log(addproduct)}
+                {Array.isArray(addproduct) && addproduct.length > 0 ? addproduct.map((items, index) => {
                     return (
                         <>
                             <div className="col-md-2 mb-2  " key={index}>
@@ -21,7 +22,13 @@ function SideDrawer({ close, Open, selectedItems }) {
                             </div>
                         </>
                     )
-                })}
+                }) :
+                    <div>
+                        <p>
+                            No products in the cart.
+                        </p>
+                    </div>
+                }
             </div>
         </Drawer>
     );
