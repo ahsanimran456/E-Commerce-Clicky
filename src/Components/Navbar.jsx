@@ -2,9 +2,11 @@ import { Input } from 'antd';
 import { VscAccount } from "react-icons/vsc";
 import { FiHeart, FiBell } from "react-icons/fi";
 import { FaShoppingCart } from 'react-icons/fa';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import SideDrawer from './Sider_drawer';
 import { Link } from 'react-router-dom';
+import { MainaddproductContext } from "../Context/AddProducts";
+
 const { Search } = Input;
 
 function Navbar() {
@@ -13,6 +15,8 @@ function Navbar() {
     const showDrawer = () => {
         setOpen(true);
     }
+    const { addproduct } = useContext(MainaddproductContext);
+
     return (
         <div className="nav-header">
             {/* <div className="container"> */}
@@ -62,8 +66,15 @@ function Navbar() {
                         <li>
                             <FiHeart />
                         </li>
-                        <li>
+                        <li className='d-flex position-relative'>
                             <FaShoppingCart onClick={showDrawer} />
+                            {addproduct.length > 0 &&
+                                <div className='cart-items'>
+                                    <span>
+                                        {addproduct.length}
+                                    </span>
+                                </div>
+                            }
                         </li>
                     </ul>
                 </div>

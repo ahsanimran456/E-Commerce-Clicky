@@ -25,9 +25,7 @@ import { MainaddproductContext } from "../Context/AddProducts";
 import { Link, useNavigate } from "react-router-dom";
 
 function Categories() {
-    const [open, setOpen] = useState(false);
-    const [SelectedItems, setSelectedItems] = useState([]);
-    const { handleAddProduct } = useContext(MainaddproductContext);
+
     const navigate = useNavigate();
     // const showDrawer = (item) => {
     //     const filteredItems = SelectedItems.some(existingItem => existingItem.id === item.id)
@@ -36,11 +34,11 @@ function Categories() {
     //         setSelectedItems(prevSelectedItems => [...prevSelectedItems, item]);
     //     }
     // };
-    useEffect(() => {
-        if (SelectedItems) {
-            handleAddProduct(SelectedItems)
-        }
-    }, [SelectedItems]);
+    // useEffect(() => {
+    //     if (SelectedItems) {
+    //         handleAddProduct(SelectedItems)
+    //     }
+    // }, [SelectedItems]);
 
     const imgdata = [
         {
@@ -162,10 +160,10 @@ function Categories() {
                                         <div className="flip-card-back d-flex justify-content-center flex-column ">
                                             <div className="text-center "><b>{items.description}</b></div>
                                             <div className="text-center "><b><p>RS 5000</p></b></div>
-                                            <div className="d-flex justify-content-center gap-1  text-center">
-                                                <div className="text-center"><b><AiOutlineShoppingCart /*onClick={() => showDrawer(items)}*/ size={20} style={{ cursor: "pointer" }} /></b></div>
+                                            {/* <div className="d-flex justify-content-center gap-1  text-center">
+                                                <div className="text-center"><b><AiOutlineShoppingCart onClick={() => showDrawer(items)} size={20} style={{ cursor: "pointer" }} /></b></div>
                                                 <div className="text-center "><b><p><GoHeart size={20} style={{ cursor: "pointer" }} /></p></b></div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -205,12 +203,6 @@ function Categories() {
                 </div>
                 <AppSlider />
             </div>
-            {/* {
-                open && <SideDrawer
-                    close={setOpen}
-                    Open={open}
-                />
-            } */}
         </div >
     );
 }

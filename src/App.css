@@ -120,6 +120,23 @@ li {
   padding: 0 10px;
 }
 
+.cart-items {
+  background: linear-gradient(87deg, #fb6340, #da1c5f);
+  border-color: #fb6340;
+  width: 18px !important;
+  height: 18px !important;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -11px;
+  left: 19px;
+  border-radius: 50%;
+  color: #ffff;
+
+}
+
 
 
 /* slider  */

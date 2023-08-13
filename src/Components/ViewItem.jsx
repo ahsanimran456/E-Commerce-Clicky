@@ -3,26 +3,59 @@ import blinkgif from "../Assests/Red_Blink (1).gif";
 import { FiHeart } from "react-icons/fi";
 import { MainaddproductContext } from "../Context/AddProducts";
 import SideDrawer from "./Sider_drawer";
+import { Image } from 'antd';
+import { ToastContainer, toast } from "react-toastify";
+
+
 function ViewItem({ item }) {
     const [selectedSize, setSelectedSize] = useState(null);
     const { handleAddProduct } = useContext(MainaddproductContext);
+    const { addproduct } = useContext(MainaddproductContext);
     const [open, setOpen] = useState(false);
 
     const handleSizeClick = (size) => {
         setSelectedSize(size);
     };
     const HandleAddToCart = () => {
-        handleAddProduct(item)
+        if (!selectedSize) {
+            toast.warning("please select size");
+            return
+        }
+        if (addproduct.length > 0) {
+            let filteredItems = addproduct.some(items => items.description == item.description);
+            console.log(filteredItems, "items check");
+            !filteredItems && handleAddProduct(item);
+            !filteredItems && setOpen(true)
+            filteredItems = false
+            return
+        }
+        handleAddProduct(item);
         setOpen(true)
+
+
     }
     return (
         <>
+            <ToastContainer />
             <div className="container">
                 <div className="viewitem-main">
                     <div className="row viewitemcard">
                         <div className="col-md-6 col-sm-12 p-0">
                             <div>
-                                <img className="img-fluid" src={item.imgurl} alt="" />
+                                {/* <img className="img-fluid" src={item.imgurl} alt="" /> */}
+                                <Image.PreviewGroup
+                                // items={[
+                                //     'https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp',
+                                //     'https://gw.alipayobjects.com/zos/antfincdn/cV16ZqzMjW/photo-1473091540282-9b846e7965e3.webp',
+                                //     'https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp',
+                                // ]}
+                                >
+                                    <Image
+                                        className="img-fluid"
+                                        // width={200}
+                                        src={item.imgurl}
+                                    />
+                                </Image.PreviewGroup>
                             </div>
                         </div>
                         <div className="col-md-6 col-sm-12 ">
