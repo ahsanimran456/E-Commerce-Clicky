@@ -1,14 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import blinkgif from "../Assests/Red_Blink (1).gif";
 import { FiHeart } from "react-icons/fi";
 import { MainaddproductContext } from "../Context/AddProducts";
 import SideDrawer from "./Sider_drawer";
 import { Image } from 'antd';
 import { ToastContainer, toast } from "react-toastify";
+import AppSlider from "./Slider";
 
 
-function ViewItem({ item }) {
+function ViewItem({ item, setReCall, ReCall }) {
     const [selectedSize, setSelectedSize] = useState(null);
+    // const [CurrentItem, setCurrentItem] = useState();
     const { handleAddProduct } = useContext(MainaddproductContext);
     const { addproduct } = useContext(MainaddproductContext);
     const [open, setOpen] = useState(false);
@@ -31,32 +33,23 @@ function ViewItem({ item }) {
         }
         handleAddProduct(item);
         setOpen(true)
-
-
     }
     return (
         <>
             <ToastContainer />
             <div className="container">
                 <div className="viewitem-main">
-                    <div className="row viewitemcard">
+                    <div className="row m-0 viewitemcard">
                         <div className="col-md-6 col-sm-12 p-0">
-                            <div>
-                                {/* <img className="img-fluid" src={item.imgurl} alt="" /> */}
-                                <Image.PreviewGroup
-                                // items={[
-                                //     'https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp',
-                                //     'https://gw.alipayobjects.com/zos/antfincdn/cV16ZqzMjW/photo-1473091540282-9b846e7965e3.webp',
-                                //     'https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp',
-                                // ]}
-                                >
-                                    <Image
-                                        className="img-fluid"
-                                        // width={200}
-                                        src={item.imgurl}
-                                    />
-                                </Image.PreviewGroup>
-                            </div>
+                            {/* <img className="img-fluid" src={item.imgurl} alt="" /> */}
+                            <Image.PreviewGroup
+                            >
+                                <Image
+                                    className="img-fluid"
+                                    // width={200}
+                                    src={item.imgurl}
+                                />
+                            </Image.PreviewGroup>
                         </div>
                         <div className="col-md-6 col-sm-12 ">
                             <div className="viewitem-carddescription">
@@ -135,11 +128,18 @@ function ViewItem({ item }) {
                                     <div className="viewitem-WishList" >
                                         <span><FiHeart className="me-2" />WishList</span>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <h3>
+                        Similar Products
+                    </h3>
+                </div>
+                <div>
+                    <AppSlider setReCall1={setReCall} ReCall1={ReCall} />
                 </div>
             </div>
 

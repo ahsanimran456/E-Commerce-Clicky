@@ -31,55 +31,65 @@ const SliderData = [
         id: 1,
         imgurl: img1,
         Rates: 2500,
-        Acctual_Price: 2800
+        Acctual_Price: 2800,
+        description: "EAST LINE",
     },
     {
         id: 2,
         imgurl: img2,
         Rates: 2800,
-        Acctual_Price: 3000
+        Acctual_Price: 3000,
+        description: "WEST LINE",
     },
     {
         id: 3,
         imgurl: img3,
         Rates: 4500,
-        Acctual_Price: 5000
+        Acctual_Price: 5000,
+        description: "WEST LINE",
     },
     {
         id: 4,
         imgurl: img4,
         Rates: 3200,
-        Acctual_Price: 4000
+        Acctual_Price: 4000,
+        description: "WEST LINE",
     },
     {
         id: 5,
         imgurl: img5,
         Rates: 1500,
-        Acctual_Price: 2000
+        Acctual_Price: 2000,
+        description: "WEST LINE",
     },
     {
         id: 6,
         imgurl: img6,
         Rates: 3250,
-        Acctual_Price: 4200
+        Acctual_Price: 4200,
+        description: "EAST LINE",
     },
     {
         id: 7,
         imgurl: img7,
         Rates: 1900,
-        Acctual_Price: 2250
+        Acctual_Price: 2250,
+        description: "WEST LINE",
     },
     {
         id: 8,
         imgurl: img8,
         Rates: 5400,
-        Acctual_Price: 5600
+        Acctual_Price: 5600,
+        description: "WEST LINE",
+
     },
     {
         id: 9,
         imgurl: img9,
         Rates: 3600,
-        Acctual_Price: 3700
+        Acctual_Price: 3700,
+        description: "EAST LINE",
     },
 ]
 
@@ -160,4 +170,4 @@ const Topbrands = [
 
 
 
-export { SliderData, dealdata,Topbrands };
+export { SliderData, dealdata, Topbrands };

@@ -362,8 +362,24 @@ li {
 .viewitemcard {
   background-color: #fafafafa;
   margin-top: 20px;
+  width: 100%;
+  height: 568px;
+  /* background-color: red; */
+
 }
 
+.viewitemcard .col-md-6 {
+  height: 100%;
+}
+
+.ant-image-img,.ant-image {
+  height: 100% !important;
+  width: 100% !important;
+}
+.ant-image img{
+
+  object-fit: cover;
+}
 .viewitem-carddescription {
   margin-top: 40px;
 }

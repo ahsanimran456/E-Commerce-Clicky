@@ -1,7 +1,9 @@
 import Slider from "react-slick";
-import {SliderData} from "./Products"
+import { SliderData } from "./Products"
+import { useNavigate } from "react-router-dom";
 
-function AppSlider() {
+function AppSlider({ setReCall1, ReCall1 }) {
+    const navigate = useNavigate();
 
     function SampleNextArrow(props) {
         const { className, style, onClick } = props;
@@ -25,6 +27,17 @@ function AppSlider() {
             </div>
         );
 
+    }
+    console.log(setReCall1, "slider");
+    console.log(ReCall1, "slidersssss");
+    const HandleItem = (item) => {
+        const itemJSON = JSON.stringify(item);
+        localStorage.setItem("Product", itemJSON);
+        console.log('====================================');
+        console.log("called");
+        console.log('====================================');
+        setReCall1(ReCall1 + 1)
+        // navigate(`product/${item.description}/${item.id}`)
     }
     const settings = {
         infinite: true,
@@ -67,12 +80,12 @@ function AppSlider() {
 
     };
     return (
-        <Slider {...settings}>
+        <Slider {...settings} >
             {SliderData && SliderData.map((items, index) => {
                 const percent = ((items.Acctual_Price - items.Rates) / items.Acctual_Price) * 100
                 const final = Math.ceil(percent)
                 return (
-                    <div className="slider-card" key={index} >
+                    <div className="slider-card" key={index} onClick={() => HandleItem(items)} >
                         <div className="slider-img">
                             <img className="img-fluid" src={items.imgurl} alt="" />
                         </div>
