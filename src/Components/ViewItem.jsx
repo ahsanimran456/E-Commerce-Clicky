@@ -134,12 +134,12 @@ function ViewItem({ item, setReCall, ReCall }) {
                     </div>
                 </div>
                 <div>
-                    <h3>
+                    <h3 className="cat-header">
                         Similar Products
                     </h3>
                 </div>
                 <div>
-                    <AppSlider setReCall1={setReCall} ReCall1={ReCall} />
+                    <AppSlider setReCall1={setReCall} ReCall1={ReCall} navigation={false} />
                 </div>
             </div>
 

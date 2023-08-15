@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import { SliderData } from "./Products"
 import { useNavigate } from "react-router-dom";
 
-function AppSlider({ setReCall1, ReCall1 }) {
+function AppSlider({ setReCall1, ReCall1, navigation }) {
     const navigate = useNavigate();
 
     function SampleNextArrow(props) {
@@ -28,16 +28,11 @@ function AppSlider({ setReCall1, ReCall1 }) {
         );
 
     }
-    console.log(setReCall1, "slider");
-    console.log(ReCall1, "slidersssss");
     const HandleItem = (item) => {
         const itemJSON = JSON.stringify(item);
         localStorage.setItem("Product", itemJSON);
-        console.log('====================================');
-        console.log("called");
-        console.log('====================================');
-        setReCall1(ReCall1 + 1)
-        // navigate(`product/${item.description}/${item.id}`)
+        setReCall1 && setReCall1(ReCall1 + 1)
+        navigation && navigate(`product/${item.description}/${item.id}`)
     }
     const settings = {
         infinite: true,

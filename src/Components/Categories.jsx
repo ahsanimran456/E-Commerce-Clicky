@@ -201,7 +201,7 @@ function Categories() {
                         BESTSELLERS
                     </h3>
                 </div>
-                <AppSlider />
+                <AppSlider navigation={true} />
             </div>
         </div >
     );
