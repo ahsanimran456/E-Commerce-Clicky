@@ -1,5 +1,5 @@
 import Navbar from "../../Components/Navbar";
-import {Categories} from "../../Components/Categories";
+import { Categories } from "../../Components/Categories";
 import Banner from "../../Components/Banner";
 import DealZone from "../../Components/Dealzone";
 import TopBrands from "../../Components/TopBrands";
@@ -10,13 +10,13 @@ import axios from "axios";
 function Site() {
     useEffect(() => {
         // Define the API URL
-        const apiUrl = 'http://localhost:3000/getproducts';
+        // const apiUrl = "http://localhost:3000/postproductscategories/mens";
 
         // Make the API call using Axios
-        axios(apiUrl)
+        axios.post(`http://localhost:3000/postproductscategories/mens`)
             .then(response => {
                 console.log('====================================');
-                console.log(response);
+                console.log(response.data);
                 console.log('====================================');
             })
             .catch(err => {

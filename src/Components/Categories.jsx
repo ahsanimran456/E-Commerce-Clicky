@@ -132,6 +132,12 @@ function Categories() {
     //     }
     // }, [SelectedItems]);
 
+    const handleCategory = (item)=>{
+        console.log('====================================');
+        console.log(item,"gdfgfdgfdg");
+        console.log('====================================');
+    }
+
 
     const HandleItem = (item) => {
         const itemJSON = JSON.stringify(item);
@@ -180,17 +186,17 @@ function Categories() {
                     </h3>
                 </div>
                 <div className="banners-items">
-                    <div className="my-3 ">
+                    <div className="my-3 " onClick={() => handleCategory("fresh_design")}>
                         <img className="img-fluid" src={require("../Assests/banner1.jpg")} alt="" />
                     </div>
-                    <div className="my-3">
+                    <div className="my-3" onClick={() => handleCategory("kids")}>
                         <img className="img-fluid" src={require("../Assests/banner3.jpg")} alt="" />
                     </div>
-                    <div className="d-flex gap-3">
-                        <div>
+                    <div className="d-flex gap-3" >
+                        <div onClick={() => handleCategory("mens")}>
                             <img className="img-fluid" src={require("../Assests/banner4.jpg")} alt="" />
                         </div>
-                        <div>
+                        <div onClick={() => handleCategory("womens")}>
                             <img className="img-fluid" src={require("../Assests/banner5.jpg")} alt="" />
                         </div>
                     </div>
