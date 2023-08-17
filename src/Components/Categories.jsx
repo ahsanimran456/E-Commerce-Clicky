@@ -23,6 +23,98 @@ import SideDrawer from "./Sider_drawer";
 import { useState, useEffect, useContext } from "react";
 import { MainaddproductContext } from "../Context/AddProducts";
 import { Link, useNavigate } from "react-router-dom";
+const imgdata = [
+    {
+        id: 1,
+        imgurl: img1,
+        description: "Women's Pumps",
+    },
+    {
+        id: 2,
+        imgurl: img2,
+        description: "Casual Shoes",
+    },
+    {
+        id: 3,
+        imgurl: img3,
+        description: "Trousers",
+    },
+    {
+        id: 4,
+        imgurl: img4,
+        description: "Women's Bottoms",
+    },
+    {
+        id: 5,
+        imgurl: img5,
+        description: "Makeup",
+    },
+    {
+        id: 6,
+        imgurl: img6,
+        description: "Women's Sleepwear",
+    },
+    {
+        id: 7,
+        imgurl: img7,
+        description: "Tops",
+    },
+    {
+        id: 8,
+        imgurl: img8,
+        description: "Kurta",
+    },
+    {
+        id: 9,
+        imgurl: img9,
+        description: "Women's T-Shirts",
+    },
+    {
+        id: 10,
+        imgurl: img10,
+        description: "Handbags",
+    },
+    {
+        id: 11,
+        imgurl: img11,
+        description: "Dresses",
+    },
+    {
+        id: 12,
+        imgurl: img12,
+        description: "Men's Casual Shirts",
+    },
+    {
+        id: 13,
+        imgurl: img13,
+        description: "Men's T-Shirts",
+    },
+    {
+        id: 14,
+        imgurl: img14,
+        description: "Girls Clothing",
+    },
+    {
+        id: 15,
+        imgurl: img15,
+        description: "Boys Clothing",
+    },
+    {
+        id: 16,
+        imgurl: img16,
+        description: "Lawn",
+    },
+    {
+        id: 17,
+        imgurl: img17,
+        description: "Women's Sneakers",
+    },
+    {
+        id: 18,
+        imgurl: img18,
+        description: "Sports Shoes",
+    },
+]
 
 function Categories() {
 
@@ -40,98 +132,7 @@ function Categories() {
     //     }
     // }, [SelectedItems]);
 
-    const imgdata = [
-        {
-            id: 1,
-            imgurl: img1,
-            description: "Women's Pumps",
-        },
-        {
-            id: 2,
-            imgurl: img2,
-            description: "Casual Shoes",
-        },
-        {
-            id: 3,
-            imgurl: img3,
-            description: "Trousers",
-        },
-        {
-            id: 4,
-            imgurl: img4,
-            description: "Women's Bottoms",
-        },
-        {
-            id: 5,
-            imgurl: img5,
-            description: "Makeup",
-        },
-        {
-            id: 6,
-            imgurl: img6,
-            description: "Women's Sleepwear",
-        },
-        {
-            id: 7,
-            imgurl: img7,
-            description: "Tops",
-        },
-        {
-            id: 8,
-            imgurl: img8,
-            description: "Kurta",
-        },
-        {
-            id: 9,
-            imgurl: img9,
-            description: "Women's T-Shirts",
-        },
-        {
-            id: 10,
-            imgurl: img10,
-            description: "Handbags",
-        },
-        {
-            id: 11,
-            imgurl: img11,
-            description: "Dresses",
-        },
-        {
-            id: 12,
-            imgurl: img12,
-            description: "Men's Casual Shirts",
-        },
-        {
-            id: 13,
-            imgurl: img13,
-            description: "Men's T-Shirts",
-        },
-        {
-            id: 14,
-            imgurl: img14,
-            description: "Girls Clothing",
-        },
-        {
-            id: 15,
-            imgurl: img15,
-            description: "Boys Clothing",
-        },
-        {
-            id: 16,
-            imgurl: img16,
-            description: "Lawn",
-        },
-        {
-            id: 17,
-            imgurl: img17,
-            description: "Women's Sneakers",
-        },
-        {
-            id: 18,
-            imgurl: img18,
-            description: "Sports Shoes",
-        },
-    ]
+
     const HandleItem = (item) => {
         const itemJSON = JSON.stringify(item);
         localStorage.setItem("Product", itemJSON);
@@ -153,7 +154,7 @@ function Categories() {
                         <>
                             <div className="col-md-2 col-sm-3 p-2 " style={{ cursor: 'pointer' }} key={index} onClick={() => HandleItem(items)}>
                                 <div className="flip-card">
-                                    <div class="flip-card-inner">
+                                    <div className="flip-card-inner">
                                         <div className="flip-card-front">
                                             <img className="img-fluid" src={items.imgurl} alt={items.description} />
                                         </div>
@@ -207,4 +208,4 @@ function Categories() {
     );
 }
 
-export default Categories;
+export { Categories, imgdata };

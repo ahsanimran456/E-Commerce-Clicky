@@ -7,9 +7,7 @@ function SideDrawer({ close, Open, selectedItems }) {
     const onClose = () => {
         close(false);
     };
-    console.log('====================================');
-    console.log(addproduct.length);
-    console.log('====================================');
+
     return (
         <Drawer title="Shopping cart" placement="right" onClose={onClose} open={Open}>
             {Array.isArray(addproduct) && addproduct.length > 0 ? addproduct.map((items, index) => {

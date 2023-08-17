@@ -6,6 +6,7 @@ import SideDrawer from "./Sider_drawer";
 import { Image } from 'antd';
 import { ToastContainer, toast } from "react-toastify";
 import AppSlider from "./Slider";
+import Cards from "./Cards";
 
 
 function ViewItem({ item, setReCall, ReCall }) {
@@ -135,12 +136,18 @@ function ViewItem({ item, setReCall, ReCall }) {
                 </div>
                 <div>
                     <h3 className="cat-header">
-                        Similar Products
+                        Recently Viewed
                     </h3>
                 </div>
                 <div>
                     <AppSlider setReCall1={setReCall} ReCall1={ReCall} navigation={false} />
                 </div>
+                <div>
+                    <h3 className="cat-header">
+                        Similar Products
+                    </h3>
+                </div>
+                <Cards />
             </div>
 
             {open && <SideDrawer
