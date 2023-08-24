@@ -3,6 +3,7 @@ import './App.css';
 import Site from './Containers/Site/Site';
 import AddProductProvider from './Context/AddProducts';
 import SelectedView from './Containers/SelectedProduct/SelectedProduct';
+import ShowProduct from './Containers/ShowProduct/ShowProducts';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Site />} />
           <Route path={`/product/:view/:id`} element={<SelectedView />} />
+          <Route path={`/:items`} element={<ShowProduct />} />
         </Routes>
       </AddProductProvider>
     </div>

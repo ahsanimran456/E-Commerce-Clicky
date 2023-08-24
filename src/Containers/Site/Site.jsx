@@ -8,21 +8,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Site() {
-    useEffect(() => {
-        // Define the API URL
-        // const apiUrl = "http://localhost:3000/postproductscategories/mens";
-
-        // Make the API call using Axios
-        axios.post(`http://localhost:3000/postproductscategories/mens`)
-            .then(response => {
-                console.log('====================================');
-                console.log(response.data);
-                console.log('====================================');
-            })
-            .catch(err => {
-
-            });
-    }, []);
+   
     return (
         <div className="Main">
             <div className="Navbar">

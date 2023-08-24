@@ -23,6 +23,7 @@ import SideDrawer from "./Sider_drawer";
 import { useState, useEffect, useContext } from "react";
 import { MainaddproductContext } from "../Context/AddProducts";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 const imgdata = [
     {
         id: 1,
@@ -132,10 +133,17 @@ function Categories() {
     //     }
     // }, [SelectedItems]);
 
-    const handleCategory = (item)=>{
-        console.log('====================================');
-        console.log(item,"gdfgfdgfdg");
-        console.log('====================================');
+    const handleCategory = (item) => {
+        // axios.post(`http://localhost:3000/postproductscategories/${item}`)
+        //     .then(response => {
+        //         console.log('====================================');
+        //         console.log(response.data);
+        //         console.log('====================================');
+        //     })
+        //     .catch(err => {
+
+        //     });
+        navigate(`/${item}`)
     }
 
 
