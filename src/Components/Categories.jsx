@@ -134,15 +134,6 @@ function Categories() {
     // }, [SelectedItems]);
 
     const handleCategory = (item) => {
-        // axios.post(`http://localhost:3000/postproductscategories/${item}`)
-        //     .then(response => {
-        //         console.log('====================================');
-        //         console.log(response.data);
-        //         console.log('====================================');
-        //     })
-        //     .catch(err => {
-
-        //     });
         navigate(`/${item}`)
     }
 
@@ -194,17 +185,17 @@ function Categories() {
                     </h3>
                 </div>
                 <div className="banners-items">
-                    <div className="my-3 " onClick={() => handleCategory("fresh_design")}>
+                    <div className="my-3 " style={{ cursor: "pointer" }} onClick={() => handleCategory("fresh_design")} >
                         <img className="img-fluid" src={require("../Assests/banner1.jpg")} alt="" />
                     </div>
-                    <div className="my-3" onClick={() => handleCategory("kids")}>
+                    <div className="my-3" style={{ cursor: "pointer" }} onClick={() => handleCategory("kids")}>
                         <img className="img-fluid" src={require("../Assests/banner3.jpg")} alt="" />
                     </div>
-                    <div className="d-flex gap-3" >
+                    <div className="d-flex   gap-3" style={{ cursor: "pointer" }} >
                         <div onClick={() => handleCategory("mens")}>
                             <img className="img-fluid" src={require("../Assests/banner4.jpg")} alt="" />
                         </div>
-                        <div onClick={() => handleCategory("womens")}>
+                        <div style={{ cursor: "pointer" }} onClick={() => handleCategory("womens")}>
                             <img className="img-fluid" src={require("../Assests/banner5.jpg")} alt="" />
                         </div>
                     </div>

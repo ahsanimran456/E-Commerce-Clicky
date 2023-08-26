@@ -1,27 +1,27 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Cards from "../../Components/Cards";
 
 function ShowProduct() {
+    const [CardsData, setCardsData] = useState();
     const params = useParams();
     const items = params.items;
     useEffect(() => {
         if (items) {
-            axios.post(`http://localhost:3000/postproductscategories/${items}`)
+            axios.get(`http://localhost:3001/getproductscategories/${items}`)
                 .then(response => {
-                    console.log('====================================');
                     console.log(response.data);
-                    console.log('====================================');
+                    setCardsData(response.data)
                 })
                 .catch(err => {
-
+                    console.log(err,);
                 });
         }
 
     }, []);
     return (
-        <Cards />
+        <Cards items={CardsData} />
     );
 }
 
