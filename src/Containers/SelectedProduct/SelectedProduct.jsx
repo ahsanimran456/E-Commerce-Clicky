@@ -14,9 +14,9 @@ function SelectedView() {
         setItem(item);
     }, [ReCall]);
 
-    useEffect(() => {
-        console.log(ReCall);
-    }, [ReCall]);
+    // useEffect(() => {
+    //     console.log(ReCall);
+    // }, [ReCall]);
     return (
         <>
             <Navbar />

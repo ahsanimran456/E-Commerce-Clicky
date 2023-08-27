@@ -1,9 +1,8 @@
-function Trendingtabs() {
-    return (
+import Cards from "./Cards";
 
-        <div>
-            hello
-        </div>
+function Trendingtabs({ data }) {
+    return (
+        <Cards items={Array.isArray(data) && data} Noheader={true} />
     );
 }
 

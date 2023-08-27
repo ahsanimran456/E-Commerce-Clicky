@@ -1,45 +1,67 @@
 import { Tabs } from "antd";
 import trendingbanner from "../Assests/TopTrending.jpg"
 import Trendingtabs from "./TrendingTabs";
+import axios from "axios";
+import { useEffect, useState } from "react";
 function Toptrending() {
+    const [CardsData, setCardsData] = useState();
     const items = [
         {
-            key: '1',
+            key: 'womens',
             label: `Women`,
-            children: <Trendingtabs />,
+            children: <Trendingtabs data={CardsData} />,
         },
         {
-            key: '2',
-            label: `Men`,
-            children: <Trendingtabs />,
+            key: 'mens',
+            label: `Mens`,
+            children: <Trendingtabs data={CardsData} />,
         },
         {
-            key: '3',
+            key: 'girls',
             label: `Girls`,
-            children: <Trendingtabs />,
+            children: <Trendingtabs data={CardsData} />,
         },
         {
-            key: '4',
+            key: 'boys',
             label: `Boys`,
-            children: <Trendingtabs />,
+            children: <Trendingtabs data={CardsData} />,
         },
         {
-            key: '5',
+            key: 'beauty',
             label: `Beauty`,
-            children: <Trendingtabs />,
+            children: <Trendingtabs data={CardsData} />,
         },
     ];
-    const onChange = (key) => {
-        // console.log(key);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/getproductstrending/womens")
+            .then(response => {
+                console.log(response.data);
+                setCardsData(response.data)
+            })
+            .catch(err => {
+                console.log(err,);
+            });
+    }, []);
+    const HandlChange = (key) => {
+        console.log(key);
+        axios.get(`http://localhost:3001/getproductstrending/${key}`)
+            .then(response => {
+                console.log(response.data);
+                setCardsData(response.data)
+            })
+            .catch(err => {
+                console.log(err,);
+            });
     };
     return (
         <>
             <div className="w-100">
-                <img className="img-fluid" src={trendingbanner} alt="" />
+                <img className="img-fluid w-100" src={trendingbanner} alt="" />
             </div>
             <div className="container">
                 <div className="trendingtabs ">
-                    <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+                    <Tabs defaultActiveKey="1" items={items} onChange={HandlChange} />
                 </div>
             </div>
         </>

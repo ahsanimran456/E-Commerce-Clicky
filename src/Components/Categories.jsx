@@ -157,7 +157,7 @@ function Categories() {
                 {imgdata && imgdata.map((items, index) => {
                     return (
                         <>
-                            <div className="col-md-2 col-sm-3 p-2 " style={{ cursor: 'pointer' }} key={index} onClick={() => HandleItem(items)}>
+                            <div className="col-md-2 col-sm-3 p-2 " style={{ cursor: 'pointer' }} key={items.id} onClick={() => HandleItem(items)}>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">

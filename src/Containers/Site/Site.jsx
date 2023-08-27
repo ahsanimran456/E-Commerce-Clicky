@@ -6,9 +6,10 @@ import TopBrands from "../../Components/TopBrands";
 import Toptrending from "../../Components/Toptrending";
 import { useEffect } from "react";
 import axios from "axios";
+import Footer from "../../Components/Footer";
 
 function Site() {
-   
+
     return (
         <div className="Main">
             <div className="Navbar">
@@ -26,6 +27,9 @@ function Site() {
             </div>
             <div>
                 <Toptrending />
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
 
