@@ -9,7 +9,7 @@ function ShowProduct() {
     const items = params.items;
     useEffect(() => {
         if (items) {
-            axios.get(`http://localhost:3001/getproductscategories/${items}`)
+            axios.get(`https://maroon-bear-tux.cyclic.app/getproductscategories/${items}`)
                 .then(response => {
                     console.log(response.data);
                     setCardsData(response.data)

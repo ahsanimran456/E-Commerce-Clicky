@@ -34,7 +34,7 @@ function Toptrending() {
     ];
 
     useEffect(() => {
-        axios.get("http://localhost:3001/getproductstrending/womens")
+        axios.get("https://maroon-bear-tux.cyclic.app/getproductstrending/womens")
             .then(response => {
                 console.log(response.data);
                 setCardsData(response.data)
@@ -45,7 +45,7 @@ function Toptrending() {
     }, []);
     const HandlChange = (key) => {
         console.log(key);
-        axios.get(`http://localhost:3001/getproductstrending/${key}`)
+        axios.get(`https://maroon-bear-tux.cyclic.app/getproductstrending/${key}`)
             .then(response => {
                 console.log(response.data);
                 setCardsData(response.data)
