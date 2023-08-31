@@ -696,3 +696,21 @@ li {
   font-size: .875rem;
   letter-spacing: .4px;
 }
+
+/* cart add to css  */
+.ant-drawer-body {
+  padding: unset !important;
+}
+
+.shopping-cart-slider {
+  width: 100% !important;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+.shopping-cart-slider>.col-md-2>img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 100%;
+}
